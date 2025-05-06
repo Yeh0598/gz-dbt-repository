@@ -7,16 +7,24 @@ sources:
       - name: sales
         identifier: raw_gz_sales
         description: sales of Greenweez / we have on row per product_id found in each orders_id
+
+        loaded_at_field: CAST(date_date AS timestamp) 
+        freshness: 
+          
+          warn_after:
+            count: 90
+            period: day
+        
+
         columns:
+          - name: date_date
           - name: orders_id
             description: part of the primary key 
             tests:
-              - unique
               - not_null 
-          - name: products_id
+          - name: pdt_id
             description: part of the primary key 
             tests:
-              - unique
               - not_null
         
         
