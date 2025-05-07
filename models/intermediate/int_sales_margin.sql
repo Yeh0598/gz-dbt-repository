@@ -1,15 +1,15 @@
-SELECT 
-    rs.orders_id,
-    rs.date_date,
-    rs.revenue,
-    rs.quantity,
-    ROUND(rs.revenue - (rp.purchase_price * rs.quantity), 2) AS margin,
-    ROUND(rp.purchase_price * rs.quantity, 2) AS purchase_cost
-
-FROM {{ ref('stg_raw__sales') }} AS rs
-LEFT JOIN {{ ref('stg_raw__product') }} AS rp 
-  ON rs.products_id = rp.products_id
-
+SELECT
+products_id,
+      date_date,
+      orders_id,
+      revenue,
+      quantity,
+      purchase_price,
+      ROUND(s.quantity*p.purchase_price,2) AS purchase_cost,
+      ROUND(s.revenue - s.quantity*p.purchase_price, 2) AS margin
+  FROM {{ref("stg_raw__sales")}} s
+  LEFT JOIN {{ref("stg_raw__product")}} p
+      USING (products_id)
 
 
    
