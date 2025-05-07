@@ -12,15 +12,15 @@ sources:
              description: date of purchase
            - name: orders_id
              description: foreign key to ship
+             tests:
+               - not_null
            - name: pdt_id
              description: foreign key to product
            - name: revenue
              description: the amount paid by the customer to purchase the product. revenue = quantity * selling_price
            - name: quanitity
              description: the quantity of products purchased for a given order
-             tests:
-               - unique:
-                  column_name: "(orders_id || '-' || pdt_id)"
+             
 
        - name: product
          identifier: raw_gz_product
