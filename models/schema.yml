@@ -53,6 +53,98 @@ sources:
            - name: ship_cost
              description: shipping cost paid by Greenweez to the carrier/logistics provider
 
+       - name: adwords
+         identifier: raw_gz_adwords
+         description: ad costs for adwords
+         columns:
+           - name: date_date
+             description: campaign date & part of primary key
+             tests:
+               - not_null
+           - name: paid_source 
+             description: paid source
+           - name: campaign_key
+             description: key for campaign - part of primary key
+             tests: 
+               - not_null
+           - name: camPGN_name
+             description: name of campaign
+           - name: ads_cost
+             description: cost value of ads
+           - name: impression
+             description: amount of impression
+           - name: click
+             description: amount of clicks
+      
+       - name: bing
+         description: ad costs on bing
+         identifier: raw_gz_bing
+         columns:
+           - name: date_date
+             description: campaign date & part of primary key
+             tests:
+               - not_null
+           - name: paid_source 
+             description: paid source
+           - name: campaign_key
+             description: key for campaign - part of primary key
+             tests: 
+               - not_null
+           - name: camPGN_name
+             description: name of campaign
+           - name: ads_cost
+             description: cost value of ads
+           - name: impression
+             description: amount of impression
+           - name: click
+             description: amount of clicks  
+       
+       - name: criteo
+         description: ad costs on criteo
+         identifier: raw_gz_criteo
+         columns:
+           - name: date_date
+             description: campaign date and part of primary key
+             tests:
+               - not_null
+           - name: paid_source 
+             description: paid source
+           - name: campaign_key
+             description: key for campaign - part of primary key
+             tests: 
+               - not_null
+           - name: camPGN_name
+             description: name of campaign
+           - name: ads_cost
+             description: cost value of ads
+           - name: impression
+             description: amount of impression
+           - name: click
+             description: amount of clicks
+         
+       - name: facebook
+         description: ad costs on facebook
+         identifier: raw_gz_facebook
+         columns:
+           - name: date_date
+             description: campaign date and part of primary key
+             tests:
+               - not_null
+           - name: paid_source 
+             description: paid source
+           - name: campaign_key
+             description: key for campaign - part of primary key
+             tests: 
+               - not_null
+           - name: camPGN_name
+             description: name of campaign
+           - name: ads_cost
+             description: cost value of ads
+           - name: impression
+             description: amount of impression
+           - name: click
+             description: amount of clicks
+
 models:
    - name: int_sales_margin
      description: margin calculation per order
